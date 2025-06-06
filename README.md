@@ -1,54 +1,40 @@
-# Security Bank coding exam
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-Regin Valeriano
-reginpv@gmail.com
-0917 777 3943
+## Getting Started
 
-## Reference
+First, run the development server:
 
-Figma file:
-https://www.figma.com/design/lmzYaaCb7mo2tZCCssl9B2/SBC-Tech-Exam?node-id=0-1
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-## Acceptance Criteria
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-**Display list of recipe:**
-*   Only the list section should be scrollable.
-*   The list should be sortable by title.
-*   The list should be filterable by favorites.
-*   The list should be searchable using a text field.
-*   Users should be able to add a recipe to favorites by clicking the star icon on the image.
+You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-**Create new recipe:**
-*   Validate fields; all fields are required:
-    *   Name
-    *   Email Address (must be a valid email format)
-    *   Title
-    *   Instructions
-    *   Image
-    *   Date added
-*   Display the error field (highlighted in red) and error messages when validation fails.
-*   The title should be unique among all recipes (display a Toast message for the error if not unique).
-*   The image should be retrieved and saved/uploaded to the project folder using the title as the filename.
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-**Update Recipe (From another page):**
-*   The title name field should be read-only.
-*   Saving the updated recipe should prompt a toast message or a modal confirmation.
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-**Delete Recipe:**
-*   Deleting a recipe should navigate the user back to the recipe list.
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-**Search:**
-*   Display "No Record Found" when a search yields no results.
+## Learn More
 
-**Note:**
-1.  Create your own JSON file for the initial recipe data.
-2.  Handle CRUD (Create, Read, Update, Delete) operations via state management using Redux Toolkit.
-3.  Images should be saved/uploaded locally to the `public/images` folder.
-4.  The title name must be unique from other recipes.
+To learn more about Next.js, take a look at the following resources:
 
-**Please use the following technologies:**
-*   TypeScript
-*   Next.js 13.x (Pages Router)
-*   Material-UI (MUI)
-*   React Hook Form with Zod for validations
-*   `createAsyncThunk` for asynchronous calls
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
