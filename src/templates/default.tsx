@@ -1,11 +1,20 @@
-export default function TemplateDefault({ children }: { children: React.ReactNode }) {
+import Header from "@/components/Header"
+
+export default function TemplateDefault({ 
+  children 
+}: { 
+  children: React.ReactNode 
+}) {
   return (
     <div className="template template--default">
-      {/** Header here */}
-      
+
+      {/** Header */}
+      <Header />
+
+      {/** Main */}
       <main>{children}</main>
 
-      {/** If we add a footer here */}
+      {/** Footer (if we add a footer) */}
       <footer></footer>
     </div>
   )
