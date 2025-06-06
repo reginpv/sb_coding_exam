@@ -1,11 +1,14 @@
 # Security Bank coding exam
 
+Regin Valeriano
+reginpv@gmail.com
+0917 777 3943
+
 ## Reference
 
 Figma file:
 https://www.figma.com/design/lmzYaaCb7mo2tZCCssl9B2/SBC-Tech-Exam?node-id=0-1
 
-## Acceptance Criteria
 ## Acceptance Criteria
 
 **Display list of recipe:**
