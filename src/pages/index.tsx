@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
   return (
     <TemplateDefault className={`${inter.className} flex flex-col gap-5`}>
-      <section className="flex gap-5 p-5 container">
+      <section className="flex flex-col md:flex-row gap-5 md:gap-10 p-4 container">
 
         {/** Aside */}
         <Aside>
@@ -18,7 +18,7 @@ export default function Home() {
         </Aside>
 
         {/** Main */}
-        <section className={`${inter.className} flex-1`}>
+        <section className={`${inter.className} flex-1 rounded-2xl bg-white p-4 md:p-7`}>
           section
         </section>
 

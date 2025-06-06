@@ -6,7 +6,7 @@
     "instructions": "Cook spaghetti. In a bowl, beat eggs and mix with grated parmesan. Fry pancetta until crispy. Combine spaghetti with pancetta, then quickly mix in egg mixture off the heat. Serve with black pepper.",
     "createdBy": "Chef Gin",
     "image": {
-      "path": "images/spaghetti-carbonara.jpg",
+      "path": "/images/data/spaghetti-carbonara.jpg",
       "alt": "A plate of Spaghetti Carbonara with a sprinkle of black pepper",
       "width": 800,
       "height": 600
@@ -19,7 +19,7 @@
     "instructions": "Chop romaine lettuce. Grill chicken and slice it. Toss lettuce with croutons, sliced chicken, Caesar dressing, and grated parmesan. Serve chilled.",
     "createdBy": "Chef Alex",
     "image": {
-      "path": "images/chicken-caesar-salad.jpg",
+      "path": "/images/data/chicken-caesar-salad.jpg",
       "alt": "A bowl of Chicken Caesar Salad with croutons and parmesan cheese",
       "width": 800,
       "height": 600
@@ -32,7 +32,7 @@
     "instructions": "Heat sesame oil in a pan. Add minced garlic and ginger, then stir-fry mixed vegetables until tender. Add soy sauce and cook for another minute. Serve hot.",
     "createdBy": "Chef Mei",
     "image": {
-      "path": "images/vegetable-stir-fry.jpg",
+      "path": "/images/data/vegetable-stir-fry.jpg",
       "alt": "A colorful Vegetable Stir Fry with a variety of vegetables",
       "width": 800,
       "height": 600

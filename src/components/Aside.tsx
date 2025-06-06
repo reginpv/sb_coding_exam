@@ -6,7 +6,7 @@ export default function Aside({
   children?: React.ReactNode
 }) {
   return (
-    <aside className={` ${className} w-1/4`}>
+    <aside className={` ${className} flex flex-col gap-5 md:w-1/4 py-1`}>
       {children}
     </aside>
   )
