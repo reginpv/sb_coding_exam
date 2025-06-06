@@ -1,12 +1,14 @@
 import Header from "@/components/Header"
 
 export default function TemplateDefault({ 
+  className,
   children 
 }: { 
+  className?: string,
   children: React.ReactNode 
 }) {
   return (
-    <div className="template template--default">
+    <div className={`${className ? className : ''}`}>
 
       {/** Header */}
       <Header />

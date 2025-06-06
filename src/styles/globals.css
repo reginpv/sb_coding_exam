@@ -10,9 +10,13 @@
 
 /** Utils */
 @layer utilities {
+  /* * {
+    outline: 1px red solid;
+  } */
   .button {
     &.button--default {
       @apply bg-primary;
     }
   }
+
 }
