@@ -32,12 +32,20 @@ export const recipeSlice = createSlice({
         recipe.title.toLowerCase().includes(action.payload.toLowerCase()) ||
         recipe.ingredients.toLowerCase().includes(action.payload.toLowerCase())
       )
+    },
+    sortByTitle: (state, action: PayloadAction<"asc" | "desc">) => {
+      console.log("Sorting recipes by title in", action.payload, "order")
+      const order = action.payload
+      state.sort((a, b) => {
+        const comparison = a.title.localeCompare(b.title)
+        return order === "asc" ? comparison : -comparison
+      })
     }
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { setRecipe, addRecipe, updateRecipe, deleteRecipe, searchRecipe } = recipeSlice.actions
+export const { setRecipe, addRecipe, updateRecipe, deleteRecipe, searchRecipe, sortByTitle } = recipeSlice.actions
 
 // A "selector" function that allows us to select a value from the state
 export const selectRecipes = (state: RootState): Recipe[] => state.recipe
