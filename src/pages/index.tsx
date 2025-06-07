@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
-    <TemplateDefault className={`${inter.className} flex flex-col gap-5 lg:max-h-[100dvh] overflow-hidden`}>
+    <TemplateDefault className={`${inter.className} flex flex-col gap-5`}>
       <section className="flex flex-col md:flex-row gap-5 md:gap-10 p-4 container">
 
         {/** Aside */}
@@ -19,7 +19,7 @@ export default function Home() {
         </Aside>
 
         {/** Main */}
-        <section className={`${inter.className} flex-1 rounded-2xl bg-white p-4 md:p-7 box-shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] overflow-y-auto lg:max-h-[80svh]`}>
+        <section className={`${inter.className} flex-1 rounded-2xl bg-white p-4 md:p-7 box-shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]`}>
           <RecipeList />
         </section>
 

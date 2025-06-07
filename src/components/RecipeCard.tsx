@@ -1,4 +1,5 @@
-import { format } from 'date-fns'
+import { useState } from "react"
+import { format } from "date-fns"
 
 export default function RecipeCard({ 
   recipe 
@@ -6,10 +7,18 @@ export default function RecipeCard({
   recipe: Recipe
 }) {
 
-  const { title, description, createdBy, createdAt } = recipe
+  // INIT
+  const MAX_CHARS = 350
+
+  // Local state for managing recipe details
+  const [ moreDetails, setMoreDetails ] = useState(false)
+
+  const { title, description, createdBy, createdAt, ingredients, instructions } = recipe
+  const content = [description, `Ingredients:\n${ingredients}`, `Instructions:\n${instructions}`].join('\n\n').trim()
 
   return (
-    <div className="flex flex-col lg:flex-row items-center justify-between gap-5 lg:gap-10">
+    <div className="flex flex-col lg:flex-row items-stretch justify-between gap-5 lg:gap-10">
+      
       <div className="w-auto lg:w-1/3">
         <div className="aspect-[4/3] w-auto overflow-hidden rounded-lg">
           <img 
@@ -21,11 +30,31 @@ export default function RecipeCard({
           />
         </div>
       </div>
+
       <div className="flex flex-col gap-4 flex-1">
 
-        <div>
+        <div className="flex-1 flex flex-col gap-4">
           <h2 className="text-xl lg:text-3xl font-semibold">{title}</h2>
-          <div>{description}</div>
+          <div className="overflow-y-auto max-h-[200px]">
+            {
+              content.length > MAX_CHARS && !moreDetails
+                ? <div className="flex flex-col gap-4">
+                    <div>{`${content.slice(0, MAX_CHARS)}...`}</div>
+                  </div>
+                : <div className="flex flex-col gap-4 whitespace-pre-line">
+                    <div>{content}</div>
+                  </div>
+            }
+
+            
+          </div>
+
+          <div>
+            <button onClick={() => setMoreDetails(moreDetails ? false : true)}>
+              {moreDetails ? 'Show Less' : 'Show More'}
+            </button>
+          </div>
+
         </div>
 
         {/** misc  */}
