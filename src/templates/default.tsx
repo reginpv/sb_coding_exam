@@ -16,8 +16,6 @@ export default function TemplateDefault({
       {/** Main */}
       <main>{children}</main>
 
-      {/** Footer (if we add a footer) */}
-      <footer></footer>
     </div>
   )
 }

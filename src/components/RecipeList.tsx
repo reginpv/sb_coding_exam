@@ -8,14 +8,11 @@ export default function RecipeList() {
 
   return (
     <div>
-      <ul className="list-none flex flex-col gap-5 md:gap-7">
+      <ul className="list-none flex flex-col gap-5 md:gap-10">
         {recipes.map((recipe: Recipe) => (
-          <>
-            <li key={recipe.id} className="">
-              <RecipeCard recipe={recipe} />
-            </li>
-            <li className="border-b border-b-gray-300"></li>
-          </>
+          <li key={recipe.id} className="border-b border-b-gray-400 pb-10 last:border-b-0">
+            <RecipeCard recipe={recipe} />
+          </li>
         ))}
       </ul>
     </div>
