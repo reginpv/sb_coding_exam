@@ -2,38 +2,23 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 import type { RootState } from "@/lib/store"
 import data from "@/data/recipe.json"
 
-// Define a type for the slice state
-type RecipeState = {
-  id: number
-  title: string
-  ingredients: string
-  instructions: string
-  createdBy: string
-  image: {
-    src: string
-    alt: string
-    width: number
-    height: number
-  }
-}
-
 // Define the initial state using that type
-const initialState: RecipeState[] = data
+const initialState: Recipe[] = data
 
-console.log("Initial recipe data:", initialState)
+// console.log("Initial recipe data:", initialState)
 
 export const recipeSlice = createSlice({
   name: 'recipe',
   initialState,
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
-    setRecipe: (state, action: PayloadAction<RecipeState[]>) => {
+    setRecipe: (state, action: PayloadAction<Recipe[]>) => {
       state = action.payload
     },
-    addRecipe: (state, action: PayloadAction<RecipeState>) => {
+    addRecipe: (state, action: PayloadAction<Recipe>) => {
       state.push(action.payload)
     },
-    updateRecipe: (state, action: PayloadAction<RecipeState>) => {
+    updateRecipe: (state, action: PayloadAction<Recipe>) => {
       const index = state.findIndex(recipe => recipe.id === action.payload.id)
       if (index !== -1) {
         state[index] = action.payload
@@ -52,9 +37,9 @@ export const recipeSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { addRecipe, updateRecipe, deleteRecipe, searchRecipe } = recipeSlice.actions
+export const { setRecipe, addRecipe, updateRecipe, deleteRecipe, searchRecipe } = recipeSlice.actions
 
 // A "selector" function that allows us to select a value from the state
-export const selectRecipes = (state: RootState): RecipeState[] => state.recipe
+export const selectRecipes = (state: RootState): Recipe[] => state.recipe
 
 export default recipeSlice.reducer

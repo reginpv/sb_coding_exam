@@ -2,6 +2,7 @@
   {
     "id": 1,
     "title": "Spaghetti Carbonara",
+    "description": "A classic Italian pasta dish made with eggs, cheese, pancetta, and pepper.",
     "ingredients": "spaghetti, eggs, pancetta, parmesan cheese, black pepper",
     "instructions": "Cook spaghetti. In a bowl, beat eggs and mix with grated parmesan. Fry pancetta until crispy. Combine spaghetti with pancetta, then quickly mix in egg mixture off the heat. Serve with black pepper.",
     "createdBy": "Chef Gin",
@@ -10,11 +11,13 @@
       "alt": "A plate of Spaghetti Carbonara with a sprinkle of black pepper",
       "width": 800,
       "height": 600
-    }
+    },
+    "createdAt": "2023-10-01T12:00:00Z"
   },
   {
     "id": 2,
     "title": "Chicken Caesar Salad",
+    "description": "A refreshing salad with grilled chicken, romaine lettuce, croutons, and Caesar dressing.",
     "ingredients": "romaine lettuce, grilled chicken, croutons, Caesar dressing, parmesan cheese",
     "instructions": "Chop romaine lettuce. Grill chicken and slice it. Toss lettuce with croutons, sliced chicken, Caesar dressing, and grated parmesan. Serve chilled.",
     "createdBy": "Chef Alex",
@@ -23,11 +26,13 @@
       "alt": "A bowl of Chicken Caesar Salad with croutons and parmesan cheese",
       "width": 800,
       "height": 600
-    }
+    },
+    "createdAt": "2023-10-01T12:00:00Z"
   },
   {
     "id": 3,
     "title": "Vegetable Stir Fry",
+    "description": "A quick and healthy stir-fry with a mix of colorful vegetables in a savory sauce.",
     "ingredients": "mixed vegetables, soy sauce, garlic, ginger, sesame oil",
     "instructions": "Heat sesame oil in a pan. Add minced garlic and ginger, then stir-fry mixed vegetables until tender. Add soy sauce and cook for another minute. Serve hot.",
     "createdBy": "Chef Mei",
@@ -36,6 +41,8 @@
       "alt": "A colorful Vegetable Stir Fry with a variety of vegetables",
       "width": 800,
       "height": 600
-    }
+    },
+    "createdAt": "2023-10-01T12:00:00Z"
+
   }
 ]
