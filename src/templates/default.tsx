@@ -6,7 +6,7 @@ export default function TemplateDefault({
 }: { 
   className?: string,
   children: React.ReactNode 
-}) {
+}): JSX.Element {
   return (
     <div className={`${className ? className : ''}`}>
 

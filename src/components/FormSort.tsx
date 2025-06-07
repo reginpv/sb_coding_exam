@@ -1,6 +1,6 @@
 import { MenuItem, Select } from "@mui/material"
 
-export default function FormSort() {
+export default function FormSort(): JSX.Element {
   return (
     <form className="flex items-center gap-2">
       <div className="flex flex-col gap-3 w-full">

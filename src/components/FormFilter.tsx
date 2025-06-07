@@ -1,6 +1,6 @@
 import { FormGroup, FormControlLabel, Checkbox } from "@mui/material"
 
-export default function FormFilter() {
+export default function FormFilter(): JSX.Element {
   return (
     <form className="flex flex-col items-center gap-2">
       <div className="w-full text-sm font-semibold">
