@@ -12,6 +12,7 @@
       "width": 800,
       "height": 600
     },
+    "favorite": true,
     "createdAt": "2024-10-01T12:00:00Z"
   },
   {
@@ -27,6 +28,7 @@
       "width": 800,
       "height": 600
     },
+    "favorite": false,
     "createdAt": "2025-02-01T12:00:00Z"
   },
   {
@@ -42,6 +44,7 @@
       "width": 800,
       "height": 600
     },
+    "favorite": false,
     "createdAt": "2025-05-01T12:00:00Z"
 
   }

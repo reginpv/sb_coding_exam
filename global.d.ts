@@ -11,5 +11,6 @@ type Recipe = {
     width: number
     height: number
   },
+  favorite: boolean
   createdAt: string
 }
