@@ -40,7 +40,7 @@ export const recipeSlice = createSlice({
         const comparison = a.title.localeCompare(b.title)
         return order === "asc" ? comparison : -comparison
       })
-    }
+    },
   },
 })
 

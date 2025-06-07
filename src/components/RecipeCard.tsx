@@ -1,5 +1,8 @@
 import { useState } from "react"
 import { format } from "date-fns"
+import { Star, StarBorder } from "@mui/icons-material"
+import { useDispatch } from "react-redux"
+import { updateRecipe } from "@/lib/features/recipe/recipe"
 
 export default function RecipeCard({ 
   recipe 
@@ -9,6 +12,7 @@ export default function RecipeCard({
 
   // INIT
   const MAX_CHARS = 350
+  const dispatch = useDispatch()
 
   // Local state for managing recipe details
   const [ moreDetails, setMoreDetails ] = useState(false)
@@ -20,7 +24,19 @@ export default function RecipeCard({
     <div className="flex flex-col lg:flex-row items-stretch justify-between gap-5 lg:gap-10">
       
       <div className="w-auto lg:w-1/3">
-        <div className="aspect-[4/3] w-auto overflow-hidden rounded-lg">
+        <div className="aspect-[4/3] w-auto overflow-hidden rounded-lg relative">
+          <button 
+            onClick={() => dispatch(updateRecipe({
+              ...recipe,
+              favorite: !recipe.favorite
+            }))}
+            className="absolute top-4 right-4">
+            {
+              recipe.favorite 
+                ? <Star className=" text-yellow-500 z-20" fontSize="large" />
+                : <StarBorder className=" text-yellow-500 z-20" fontSize="large" />
+            }
+          </button>
           <img 
             src={recipe.image.src} 
             alt={recipe.image.alt} 
