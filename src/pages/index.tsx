@@ -1,9 +1,9 @@
-import { Inter } from 'next/font/google'
-import TemplateDefault from '@/templates/default'
-import Aside from '@/components/Aside'
-import FormSort from '@/components/FormSort'
-import FormFilter from '@/components/FormFilter'
-import RecipeList from '@/components/RecipeList'
+import { Inter } from "next/font/google"
+import TemplateDefault from "@/templates/default"
+import Aside from "@/components/Aside"
+import FormSort from "@/components/FormSort"
+import FormFilter from "@/components/FormFilter"
+import RecipeList from "@/components/RecipeList"
 
 const inter = Inter({ subsets: ['latin'] })
 

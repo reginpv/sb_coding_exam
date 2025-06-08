@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit"
 import recipeReducer from "./features/recipe/recipe"
+import filterReducer from "./features/filter/filter"
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
-      recipe: recipeReducer
+      recipe: recipeReducer,
+      filter: filterReducer,
     },
   })
 }

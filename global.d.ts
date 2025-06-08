@@ -13,4 +13,5 @@ type Recipe = {
   },
   favorite: boolean
   createdAt: string
+  visible: boolean
 }

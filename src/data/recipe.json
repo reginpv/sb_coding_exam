@@ -13,7 +13,8 @@
       "height": 600
     },
     "favorite": true,
-    "createdAt": "2024-10-01T12:00:00Z"
+    "createdAt": "2024-10-01T12:00:00Z",
+    "visible": true
   },
   {
     "id": 2,
@@ -29,7 +30,8 @@
       "height": 600
     },
     "favorite": false,
-    "createdAt": "2025-02-01T12:00:00Z"
+    "createdAt": "2025-02-01T12:00:00Z",
+    "visible": true
   },
   {
     "id": 3,
@@ -45,7 +47,7 @@
       "height": 600
     },
     "favorite": false,
-    "createdAt": "2025-05-01T12:00:00Z"
-
+    "createdAt": "2025-05-01T12:00:00Z",
+    "visible": true
   }
 ]
