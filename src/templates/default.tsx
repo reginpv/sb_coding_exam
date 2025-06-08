@@ -1,4 +1,5 @@
 import Header from "@/components/Header"
+import Toast from "@/components/Toast"
 
 /**
  * We'll add header options here
@@ -25,6 +26,9 @@ export default function TemplateDefault({
 
       {/** Main */}
       <main>{children}</main>
+
+      {/** Toast */}
+      <Toast />
 
     </div>
   )

@@ -10,6 +10,7 @@ import { addRecipe, updateRecipe, deleteRecipe } from "@/lib/features/recipe/rec
 import { useAppDispatch } from "@/lib/hooks"
 import { ArrowBackIos } from "@mui/icons-material"
 import { FormControl, TextField, FormHelperText } from "@mui/material"
+import { addToast } from "@/lib/features/toast/toast"
 
 // Define the schema for the recipe form using Zod
 export const formRecipeSchema = z.object({
@@ -51,7 +52,7 @@ export default function FormRecipe({
   const [imagePreview, setImagePreview] = useState<string | null>(null)
 
   // Connect the form to the Zod schema using react-hook-form
-  const { register, handleSubmit, setValue, trigger, formState: { errors } } = useForm<FormRecipeSchema>({
+  const { register, handleSubmit, setValue, trigger, watch, formState: { errors } } = useForm<FormRecipeSchema>({
     resolver: zodResolver(formRecipeSchema)
   })
 
@@ -121,9 +122,30 @@ export default function FormRecipe({
 
       }
 
-      editing ? 
-        dispatch(updateRecipe(dataForDispatch)) : 
+      // Validate title unique
+      const existingRecipe = recipe.find(r => r.title === dataForDispatch.title && r.id !== dataForDispatch.id)
+      if (existingRecipe) {
+        setValue("title", "", { shouldValidate: true })
+        throw new Error("Recipe title must be unique")
+      }
+
+      if(editing) {
+        dispatch(updateRecipe(dataForDispatch))
+
+        dispatch(addToast({
+          id: crypto.randomUUID(),
+          message: "Recipe updated successfully",
+          expiresAt: new Date(Date.now() + 5000).toISOString()
+        }))
+      } else {
         dispatch(addRecipe(dataForDispatch))
+
+        dispatch(addToast({
+          id: crypto.randomUUID(),
+          message: "Recipe added successfully",
+          expiresAt: new Date(Date.now() + 5000).toISOString()
+        }))
+      }
       
       // TODO: create a toast
       redirect("/")
@@ -143,6 +165,13 @@ export default function FormRecipe({
     // console.log("Deleting recipe with ID:", editing)
 
     try {
+      
+      dispatch(addToast({
+        id: crypto.randomUUID(),
+        message: "Recipe deleted successfully",
+        expiresAt: new Date(Date.now() + 5000).toISOString()
+      }))
+
       dispatch(deleteRecipe(parseInt(editing)))
       redirect("/")
     } catch (error) {
@@ -262,7 +291,10 @@ export default function FormRecipe({
               placeholder="Recipe title" 
               className={`input`}
               fullWidth
-              {...register("title", { required: true })}
+              disabled={editing ? true : false}
+              {...register("title", { 
+                required: true
+              })}
             />
             {errors.title && <FormHelperText error>{errors.title.message}</FormHelperText>}
           </FormControl>

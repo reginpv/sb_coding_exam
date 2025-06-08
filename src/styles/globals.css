@@ -17,6 +17,17 @@
 
 /** Utils */
 @layer utilities {
+
+  .badge {
+    @apply p-3 rounded-md;
+    &.badge--info {
+      @apply bg-blue-200 text-blue-800 border border-blue-300;
+      button {
+        @apply border border-blue-300;
+      }
+    }
+  }
+
   .button {
 
     @apply border min-w-[152px] min-h-[36px] text-lg text-white rounded-md font-semibold tracking-wider shadow-lg transition-all duration-200 ease-in-out;
