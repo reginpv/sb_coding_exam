@@ -4,7 +4,7 @@ type Recipe = {
   description: string
   ingredients: string
   instructions: string
-  image?: {
+  image: {
     src: string
     alt: string
     width: number

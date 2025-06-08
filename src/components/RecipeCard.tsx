@@ -3,7 +3,7 @@ import { format } from "date-fns"
 import { Star, StarBorder } from "@mui/icons-material"
 import { useDispatch } from "react-redux"
 import { updateRecipe } from "@/lib/features/recipe/recipe"
-import { create } from "domain"
+import Link from  "next/link"
 
 export default function RecipeCard({ 
   recipe 
@@ -31,27 +31,31 @@ export default function RecipeCard({
               ...recipe,
               favorite: !recipe.favorite
             }))}
-            className="absolute top-4 right-4">
+            className="absolute top-4 right-4 break-all">
             {
               recipe.favorite 
                 ? <Star className=" text-yellow-500 z-20" fontSize="large" />
                 : <StarBorder className=" text-yellow-500 z-20" fontSize="large" />
             }
           </button>
-          {/* <img 
+          <img 
             src={recipe.image.src} 
             alt={recipe.image.alt} 
             width={recipe.image.width} 
             height={recipe.image.height} 
             className="rounded-lg object-cover w-auto object-center"
-          /> */}
+          />
         </div>
       </div>
 
       <div className="flex flex-col gap-4 flex-1">
 
         <div className="flex-1 flex flex-col gap-4">
-          <h2 className="text-xl lg:text-3xl font-semibold">{title}</h2>
+          <h2 className="text-xl lg:text-3xl font-semibold">
+            <Link href={`/recipe/${recipe.id}/edit`}>
+              {title}
+            </Link>
+          </h2>
           <div className="overflow-y-auto max-h-[200px]">
             {
               content.length > MAX_CHARS && !moreDetails
