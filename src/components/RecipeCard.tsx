@@ -3,6 +3,7 @@ import { format } from "date-fns"
 import { Star, StarBorder } from "@mui/icons-material"
 import { useDispatch } from "react-redux"
 import { updateRecipe } from "@/lib/features/recipe/recipe"
+import { create } from "domain"
 
 export default function RecipeCard({ 
   recipe 
@@ -18,6 +19,7 @@ export default function RecipeCard({
   const [ moreDetails, setMoreDetails ] = useState(false)
 
   const { title, description, createdBy, createdAt, ingredients, instructions } = recipe
+  const { name: createdByName, email: createdByEmail } = createdBy
   const content = [description, `Ingredients:\n${ingredients}`, `Instructions:\n${instructions}`].join('\n\n').trim()
 
   return (
@@ -75,7 +77,7 @@ export default function RecipeCard({
 
         {/** misc  */}
         <div className="flex items-center justify-between">
-          <div>Added by: {createdBy}</div>
+          <div>Added by: <a href={`mailto:${createdByEmail}`}>{createdByName}</a></div>
           <div>Date: {format(new Date(createdAt), 'MMM dd, yyyy')}</div>
         </div>
 

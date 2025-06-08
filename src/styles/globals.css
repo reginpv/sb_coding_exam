@@ -21,8 +21,15 @@
     outline: 1px red solid;
   } */
   .button {
+    @apply border min-w-[152px] min-h-[36px] text-lg text-white rounded-md font-semibold tracking-wider;
     &.button--default {
       @apply bg-primary;
+    }
+  }
+
+  .form {
+    .input {
+      @apply bg-white rounded overflow-hidden;
     }
   }
 

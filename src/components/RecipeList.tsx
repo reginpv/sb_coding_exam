@@ -38,13 +38,19 @@ export default function RecipeList() {
 
   return (
     <div>
-      <ul className="list-none flex flex-col gap-5 md:gap-10">
-        {recipesFiltered.map((recipe: Recipe) => (
-          <li key={recipe.id} className="border-b border-b-gray-400 pb-10 last:border-b-0">
-            <RecipeCard recipe={recipe} />
-          </li>
-        ))}
-      </ul>
+      {
+        recipesFiltered.length > 0 ?
+          <ul className="list-none flex flex-col gap-5 md:gap-10">
+            {recipesFiltered.map((recipe: Recipe) => (
+              <li key={recipe.id} className="border-b border-b-gray-400 pb-10 last:border-b-0">
+                <RecipeCard recipe={recipe} />
+              </li>
+            ))}
+          </ul> :
+          <div className="text-2xl flex items-center justify-center h-52 font-semibold">
+            No Record Found!
+          </div>
+      }
     </div>
   );
 }
