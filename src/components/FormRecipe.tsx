@@ -140,7 +140,7 @@ export default function FormRecipe({
     const confirmed = confirm("Are you sure you want to delete this recipe?")
     if (!confirmed) return
 
-    console.log("Deleting recipe with ID:", editing)
+    // console.log("Deleting recipe with ID:", editing)
 
     try {
       dispatch(deleteRecipe(parseInt(editing)))
