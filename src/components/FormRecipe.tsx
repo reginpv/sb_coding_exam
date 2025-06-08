@@ -144,7 +144,7 @@ export default function FormRecipe({
         src: `/images/uploads/${file.name}`,
         alt: file.name,
         width: 400,
-        height: 250,
+        height: 350,
       }
 
       // Manually set the value in the form
@@ -163,7 +163,7 @@ export default function FormRecipe({
       className="flex flex-col gap-6 form"
     >
 
-      <div className="flex gap-10">
+      <div className="flex flex-col md:flex-row gap-10">
 
         <div className="md:w-1/3">
           <div>
@@ -174,7 +174,7 @@ export default function FormRecipe({
             </Link>
 
             <div>
-              <div className="relative w-full h-64 mt-4">
+              <div className="relative w-full mt-4">
                 <img 
                   src={imagePreview || "/images/default-image.png"}
                   alt="Recipe Preview"

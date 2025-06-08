@@ -13,6 +13,6 @@ type Recipe = {
   favorite: boolean
   createdAt: string
   createdByName: string
-  createdByEmail?: string
+  createdByEmail: string
   visible: boolean
 }
