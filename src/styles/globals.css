@@ -18,9 +18,13 @@
 /** Utils */
 @layer utilities {
   .button {
-    @apply border min-w-[152px] min-h-[36px] text-lg text-white rounded-md font-semibold tracking-wider;
+
+    @apply border min-w-[152px] min-h-[36px] text-lg text-white rounded-md font-semibold tracking-wider shadow-lg transition-all duration-200 ease-in-out;
     &.button--default {
       @apply bg-primary;
+    }
+    &.button--secondary {
+      @apply bg-secondary;
     }
   }
   .form {

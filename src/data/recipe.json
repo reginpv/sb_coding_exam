@@ -6,7 +6,7 @@
     "ingredients": "spaghetti, eggs, pancetta, parmesan cheese, black pepper",
     "instructions": "Cook spaghetti. In a bowl, beat eggs and mix with grated parmesan. Fry pancetta until crispy. Combine spaghetti with pancetta, then quickly mix in egg mixture off the heat. Serve with black pepper.",
     "createdByName": "Chef John",
-    "createByEmail": "chefjohn@email.com",
+    "createdByEmail": "chefjohn@email.com",
     "image": {
       "src": "/images/data/spaghetti-carbonara.jpg",
       "alt": "A plate of Spaghetti Carbonara with a sprinkle of black pepper",

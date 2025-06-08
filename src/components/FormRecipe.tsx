@@ -6,7 +6,7 @@ import type { RootState } from "@/lib/store"
 import { useRouter } from "next/router"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { addRecipe, updateRecipe } from "@/lib/features/recipe/recipe"
+import { addRecipe, updateRecipe, deleteRecipe } from "@/lib/features/recipe/recipe"
 import { useAppDispatch } from "@/lib/hooks"
 import { ArrowBackIos } from "@mui/icons-material"
 import { FormControl, TextField, FormHelperText } from "@mui/material"
@@ -19,7 +19,7 @@ export const formRecipeSchema = z.object({
     alt: z.string().min(1, "Image alt is required"),
     width: z.number().min(1),
     height: z.number().min(1),
-  }).refine(img => img.src.endsWith(".jpg") || img.src.endsWith(".png"), {
+  }).refine(img => img.src.endsWith(".jpg") || img.src.endsWith(".jpeg") || img.src.endsWith(".png"), {
     message: "Only JPG/PNG allowed",
     path: ["src"],
   }),
@@ -133,6 +133,23 @@ export default function FormRecipe({
     }
   }
 
+  async function handleDelete() {
+
+    if (!editing) return
+
+    const confirmed = confirm("Are you sure you want to delete this recipe?")
+    if (!confirmed) return
+
+    console.log("Deleting recipe with ID:", editing)
+
+    try {
+      dispatch(deleteRecipe(parseInt(editing)))
+      redirect("/")
+    } catch (error) {
+      console.error("Error deleting recipe:", error)
+    }
+
+  }
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0]
@@ -192,7 +209,7 @@ export default function FormRecipe({
             </div>
 
             {
-              errors.image && <div>
+              errors.image?.src && <div>
                 <FormHelperText error className="bottom-0 left-0">
                   {errors.image.message}
                 </FormHelperText>
@@ -309,7 +326,18 @@ export default function FormRecipe({
       <input type="hidden" {...register("id", { value: recipe.length + 1 })} />
 
       <div className="flex justify-end">
-        <button className="button button--default">Save</button>
+
+        {
+          //JSON.stringify(errors, null, 2)
+        }
+
+        <div className="flex gap-5">
+          {
+            editing && <button type="button" onClick={handleDelete} className="button button--secondary">Delete</button>
+          }
+          <button className="button button--default">Save</button>
+        </div>
+        
       </div>
 
     </form>
