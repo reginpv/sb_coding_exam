@@ -52,7 +52,7 @@ export default function FormRecipe({
   const [imagePreview, setImagePreview] = useState<string | null>(null)
 
   // Connect the form to the Zod schema using react-hook-form
-  const { register, handleSubmit, setValue, trigger, watch, formState: { errors } } = useForm<FormRecipeSchema>({
+  const { register, handleSubmit, setValue, trigger, watch, formState: { errors }, setError } = useForm<FormRecipeSchema>({
     resolver: zodResolver(formRecipeSchema)
   })
 
@@ -125,8 +125,12 @@ export default function FormRecipe({
       // Validate title unique
       const existingRecipe = recipe.find(r => r.title === dataForDispatch.title && r.id !== dataForDispatch.id)
       if (existingRecipe) {
-        setValue("title", "", { shouldValidate: true })
-        throw new Error("Recipe title must be unique")
+        setError("title", {
+          type: "manual",
+          message: "Recipe title must be unique"
+        })
+        return
+        // throw new Error("Recipe title must be unique")
       }
 
       if(editing) {
