@@ -27,9 +27,7 @@ export const filterSlice = createSlice({
   },
 })
 
-// Action creators are generated for each case reducer function
 export const { setSearch, setSort, setFavorite } = filterSlice.actions
-
-// A "selector" function that allows us to select a value from the state
 export const selectFilter = (state: RootState): typeof initialState => state.filter
+
 export default filterSlice.reducer

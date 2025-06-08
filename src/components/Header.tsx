@@ -1,5 +1,4 @@
-import FormSearch from '@/components/FormSearch'
-
+import FormSearch from "@/components/FormSearch"
 export default function Header({
   search = true
 }: {

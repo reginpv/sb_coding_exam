@@ -1,16 +1,17 @@
 import { z } from "zod"
 import { useState, useRef, useEffect } from "react"
-import { FormControl, TextField, FormHelperText } from "@mui/material"
+import Link from "next/link"
+import { useSelector } from "react-redux"
+import type { RootState } from "@/lib/store"
+import { useRouter } from "next/router"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { addRecipe, updateRecipe } from "@/lib/features/recipe/recipe"
 import { useAppDispatch } from "@/lib/hooks"
-import { useSelector } from "react-redux"
-import type { RootState } from "@/lib/store"
-import { useRouter } from "next/router"
-import Link from "next/link"
 import { ArrowBackIos } from "@mui/icons-material"
+import { FormControl, TextField, FormHelperText } from "@mui/material"
 
+// Define the schema for the recipe form using Zod
 export const formRecipeSchema = z.object({
   id: z.number().min(1, "ID must be greater than 0"),
   image: z.object({
@@ -33,6 +34,7 @@ export const formRecipeSchema = z.object({
   favorite: z.boolean()
 })
 
+// Infer the TypeScript type from the Zod schema
 export type FormRecipeSchema = z.infer<typeof formRecipeSchema>
 
 export default function FormRecipe({
@@ -48,6 +50,7 @@ export default function FormRecipe({
   const fileInputRef = useRef<HTMLInputElement>(null)
   const [imagePreview, setImagePreview] = useState<string | null>(null)
 
+  // Connect the form to the Zod schema using react-hook-form
   const { register, handleSubmit, setValue, trigger, formState: { errors } } = useForm<FormRecipeSchema>({
     resolver: zodResolver(formRecipeSchema)
   })
@@ -75,53 +78,60 @@ export default function FormRecipe({
   }, [editing, recipe, setValue])
 
   async function onSubmit(currentHookFormData: FormRecipeSchema) {
-  try {
-    const dataForDispatch = { ...currentHookFormData }
+    try {
+      const dataForDispatch = { ...currentHookFormData }
 
-    const imageFile = fileInputRef.current?.files?.[0]
-    if (imageFile) {
+      const imageFile = fileInputRef.current?.files?.[0]
+      if (imageFile) {
 
-      const formData = new FormData()
-      formData.append("file", imageFile)
+        const formData = new FormData()
+        formData.append("file", imageFile)
 
-      const uploadRes = await fetch("/api/upload", {
-        method: "POST",
-        body: formData,
-      })
+        // Dir was gitignored
+        // and is expected to be handled by the server-side API
+        const uploadRes = await fetch("/api/upload", {
+          method: "POST",
+          body: formData,
+        })
 
-      if (!uploadRes.ok) {
-        throw new Error("Image upload failed")
+        if (!uploadRes.ok) {
+          throw new Error("Image upload failed")
+        }
+
+        const { path } = await uploadRes.json()
+
+        const reader = new FileReader()
+        const preview = await new Promise<string>((resolve, reject) => {
+          reader.onloadend = () => resolve(reader.result as string)
+          reader.onerror = reject
+          reader.readAsDataURL(imageFile)
+        })
+
+        setImagePreview(preview)
+
+        const imageData: FormRecipeSchema["image"] = {
+          src: path,
+          alt: imageFile.name,
+          width: 400,
+          height: 250,
+        }
+
+        dataForDispatch.image = imageData
+        setValue("image", imageData, { shouldValidate: true })
+
       }
 
-      const { path } = await uploadRes.json()
+      editing ? 
+        dispatch(updateRecipe(dataForDispatch)) : 
+        dispatch(addRecipe(dataForDispatch))
+      
+      // TODO: create a toast
+      redirect("/")
 
-      const reader = new FileReader()
-      const preview = await new Promise<string>((resolve, reject) => {
-        reader.onloadend = () => resolve(reader.result as string)
-        reader.onerror = reject
-        reader.readAsDataURL(imageFile)
-      })
-
-      setImagePreview(preview)
-
-      const imageData: FormRecipeSchema["image"] = {
-        src: path, // server-provided path
-        alt: imageFile.name,
-        width: 400,
-        height: 250,
-      }
-
-      dataForDispatch.image = imageData
-      setValue("image", imageData, { shouldValidate: true })
+    } catch (error) {
+      console.error("Error adding recipe:", error)
     }
-
-    editing ? dispatch(updateRecipe(dataForDispatch)) : dispatch(addRecipe(dataForDispatch))
-    redirect("/")
-
-  } catch (error) {
-    console.error("Error adding recipe:", error)
   }
-}
 
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -137,9 +147,11 @@ export default function FormRecipe({
         height: 250,
       }
 
+      // Manually set the value in the form
       setValue("image", imageData)
-      trigger("image") // to update validation
+      trigger("image")
       setImagePreview(reader.result as string)
+
     }
     reader.readAsDataURL(file)
   }
@@ -152,9 +164,8 @@ export default function FormRecipe({
     >
 
       <div className="flex gap-10">
-        
+
         <div className="md:w-1/3">
-          
           <div>
 
             <Link href="/" className="flex items-center gap-2 text-xl">
@@ -189,7 +200,6 @@ export default function FormRecipe({
             }
 
           </div>
-
         </div>
 
         <div className="flex flex-col gap-6 flex-1">
@@ -289,22 +299,18 @@ export default function FormRecipe({
           </FormControl>
 
         </div>
+
       </div>
 
-
+      {/** Populate data */}
       <input type="hidden" {...register("createdAt", { value: new Date().toISOString() })} />
       <input type="hidden" {...register("visible", { value: true })} />
       <input type="hidden" {...register("favorite", { value: false })} />
       <input type="hidden" {...register("id", { value: recipe.length + 1 })} />
 
-      {
-        JSON.stringify(errors)
-      }
-
       <div className="flex justify-end">
         <button className="button button--default">Save</button>
       </div>
-
 
     </form>
   )

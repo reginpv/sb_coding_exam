@@ -14,7 +14,7 @@ export default function FormSort(): JSX.Element {
   return (
     <form className="flex items-center gap-2">
       <div className="flex flex-col gap-3 w-full">
-        <label htmlFor="sort" className="text-sm font-semibold">Sort by Title ()</label>
+        <label htmlFor="sort" className="text-sm font-semibold">Sort by Title</label>
         <Select
           id="sort"
           name="sort"

@@ -5,7 +5,7 @@
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy Lorem Ipsum is simply dummy text of the printing and typese",
     "ingredients": "spaghetti, eggs, pancetta, parmesan cheese, black pepper",
     "instructions": "Cook spaghetti. In a bowl, beat eggs and mix with grated parmesan. Fry pancetta until crispy. Combine spaghetti with pancetta, then quickly mix in egg mixture off the heat. Serve with black pepper.",
-    "createByName": "Chef John",
+    "createdByName": "Chef John",
     "createByEmail": "chefjohn@email.com",
     "image": {
       "src": "/images/data/spaghetti-carbonara.jpg",

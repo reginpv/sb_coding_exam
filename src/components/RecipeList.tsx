@@ -14,7 +14,8 @@ export default function RecipeList() {
 
     const { search, sort, favorite } = filter
 
-    let filteredRecipes = [...recipes] // Create a shallow copy of the recipes array
+    // Create a copy, dont mutate the original
+    let filteredRecipes = [...recipes]
 
     if (search) {
       filteredRecipes = filteredRecipes.filter(recipe =>

@@ -9,13 +9,8 @@ export default function FormSearch(): JSX.Element {
   const filter = useSelector((state: RootState) => state.filter)
   const { search } = filter
 
-
   return (
     <form 
-      onSubmit={(e) => {
-        e.preventDefault()
-        // Handle search submission logic here
-      }}
       className="bg-background h-11 flex items-center rounded-xl p-4 text-b w-full max-w-[506px] text-black border-1 border border-black shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]"
     >
       <input

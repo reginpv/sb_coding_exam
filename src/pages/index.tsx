@@ -5,7 +5,7 @@ import Aside from "@/components/Aside"
 import FormSort from "@/components/FormSort"
 import FormFilter from "@/components/FormFilter"
 import RecipeList from "@/components/RecipeList"
-import { CropSquareSharp, Add } from "@mui/icons-material"
+import { Add } from "@mui/icons-material"
 
 const inter = Inter({ subsets: ['latin'] })
 

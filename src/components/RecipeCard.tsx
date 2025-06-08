@@ -1,9 +1,9 @@
 import { useState } from "react"
+import Link from  "next/link"
 import { format } from "date-fns"
-import { Star, StarBorder } from "@mui/icons-material"
 import { useDispatch } from "react-redux"
 import { updateRecipe } from "@/lib/features/recipe/recipe"
-import Link from  "next/link"
+import { Star, StarBorder } from "@mui/icons-material"
 
 export default function RecipeCard({ 
   recipe 
@@ -13,11 +13,14 @@ export default function RecipeCard({
 
   // INIT
   const MAX_CHARS = 350
+
+  // HOOKS
   const dispatch = useDispatch()
 
   // Local state for managing recipe details
   const [ moreDetails, setMoreDetails ] = useState(false)
 
+  // Prep content
   const { title, description, createdByName, createdByEmail, createdAt, ingredients, instructions } = recipe
   const content = [description, `Ingredients:\n${ingredients}`, `Instructions:\n${instructions}`].join('\n\n').trim()
 
@@ -65,9 +68,7 @@ export default function RecipeCard({
                 : <div className="flex flex-col gap-4 whitespace-pre-line">
                     <div>{content}</div>
                   </div>
-            }
-
-            
+            }   
           </div>
 
           <div>

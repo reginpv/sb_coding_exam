@@ -7,7 +7,6 @@ const initialState: Recipe[] = data
 export const recipeSlice = createSlice({
   name: 'recipe',
   initialState,
-  // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
     setRecipe: (state, action: PayloadAction<Recipe[]>) => {
       state = action.payload
@@ -27,10 +26,8 @@ export const recipeSlice = createSlice({
   },
 })
 
-// Action creators are generated for each case reducer function
-export const { setRecipe, addRecipe, updateRecipe, deleteRecipe } = recipeSlice.actions
 
-// A "selector" function that allows us to select a value from the state
+export const { setRecipe, addRecipe, updateRecipe, deleteRecipe } = recipeSlice.actions
 export const selectRecipes = (state: RootState): Recipe[] => state.recipe
 
 export default recipeSlice.reducer
