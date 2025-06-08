@@ -7,7 +7,7 @@ import type { RootState } from "@/lib/store"
 export default function FormSearch(): JSX.Element {
 
   const dispatch = useAppDispatch()
-  const filter = useSelector((state: any) => state.filter)
+  const filter = useSelector((state: RootState) => state.filter)
   const { search } = filter
 
 
