@@ -1,5 +1,4 @@
 import { useAppDispatch } from "@/lib/hooks"
-import Image from "next/image"
 import { useSelector } from "react-redux"
 import { setSearch } from "@/lib/features/filter/filter"
 import type { RootState } from "@/lib/store"
@@ -30,7 +29,7 @@ export default function FormSearch(): JSX.Element {
       <button
         type="submit"
       >
-        <Image src="/images/icons/icon-search.png" alt="Search Icon" width={35} height={35} />
+        <img src="/images/icons/icon-search.png" alt="Search Icon" width={35} height={35} />
       </button>
     </form>
   )

@@ -30,6 +30,9 @@
   .form {
     .input {
       @apply bg-white rounded overflow-hidden;
+      &.input--error {
+        @apply border border-red-500;
+      }
     }
   }
 

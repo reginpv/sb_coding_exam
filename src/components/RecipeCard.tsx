@@ -18,8 +18,7 @@ export default function RecipeCard({
   // Local state for managing recipe details
   const [ moreDetails, setMoreDetails ] = useState(false)
 
-  const { title, description, createdBy, createdAt, ingredients, instructions } = recipe
-  const { name: createdByName, email: createdByEmail } = createdBy
+  const { title, description, createdByName, createdByEmail, createdAt, ingredients, instructions } = recipe
   const content = [description, `Ingredients:\n${ingredients}`, `Instructions:\n${instructions}`].join('\n\n').trim()
 
   return (
@@ -39,13 +38,13 @@ export default function RecipeCard({
                 : <StarBorder className=" text-yellow-500 z-20" fontSize="large" />
             }
           </button>
-          <img 
+          {/* <img 
             src={recipe.image.src} 
             alt={recipe.image.alt} 
             width={recipe.image.width} 
             height={recipe.image.height} 
             className="rounded-lg object-cover w-auto object-center"
-          />
+          /> */}
         </div>
       </div>
 

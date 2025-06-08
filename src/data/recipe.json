@@ -5,10 +5,8 @@
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy Lorem Ipsum is simply dummy text of the printing and typese",
     "ingredients": "spaghetti, eggs, pancetta, parmesan cheese, black pepper",
     "instructions": "Cook spaghetti. In a bowl, beat eggs and mix with grated parmesan. Fry pancetta until crispy. Combine spaghetti with pancetta, then quickly mix in egg mixture off the heat. Serve with black pepper.",
-    "createdBy": {
-      "name": "Chef John",
-      "email": "chefjohn@email.com"
-    },
+    "createByName": "Chef John",
+    "createByEmail": "chefjohn@email.com",
     "image": {
       "src": "/images/data/spaghetti-carbonara.jpg",
       "alt": "A plate of Spaghetti Carbonara with a sprinkle of black pepper",
@@ -25,10 +23,8 @@
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy Lorem Ipsum is simply dummy text of the printing and typese",
     "ingredients": "romaine lettuce, grilled chicken, croutons, Caesar dressing, parmesan cheese",
     "instructions": "Chop romaine lettuce. Grill chicken and slice it. Toss lettuce with croutons, sliced chicken, Caesar dressing, and grated parmesan. Serve chilled.",
-    "createdBy": {
-      "name": "Chef Anna",
-      "email": "chefanna@email.com"
-    },
+    "createdByName": "Chef Sarah",
+    "createdByEmail": "chefsarah@email.com",
     "image": {
       "src": "/images/data/chicken-caesar-salad.jpg",
       "alt": "A bowl of Chicken Caesar Salad with croutons and parmesan cheese",
@@ -45,10 +41,8 @@
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy Lorem Ipsum is simply dummy text of the printing and typese",
     "ingredients": "mixed vegetables, soy sauce, garlic, ginger, sesame oil",
     "instructions": "Heat sesame oil in a pan. Add minced garlic and ginger, then stir-fry mixed vegetables until tender. Add soy sauce and cook for another minute. Serve hot.",
-    "createdBy": {
-      "name": "Chef Lisa",
-      "email": "cheflisa@email.com"
-    },
+    "createdByName": "Chef Emily",
+    "createdByEmail": "chefemily@email.com",
     "image": {
       "src": "/images/data/vegetable-stir-fry.jpg",
       "alt": "A colorful Vegetable Stir Fry with a variety of vegetables",

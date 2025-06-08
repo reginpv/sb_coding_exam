@@ -4,7 +4,7 @@ type Recipe = {
   description: string
   ingredients: string
   instructions: string
-  image: {
+  image?: {
     src: string
     alt: string
     width: number
@@ -12,9 +12,7 @@ type Recipe = {
   },
   favorite: boolean
   createdAt: string
-  createdBy: {
-    name: string
-    email: string
-  }
+  createdByName: string
+  createdByEmail: string
   visible: boolean
 }
