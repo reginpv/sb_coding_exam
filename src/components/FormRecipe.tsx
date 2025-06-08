@@ -209,7 +209,7 @@ export default function FormRecipe({
             </div>
 
             {
-              errors.image?.src && <div>
+              errors.image && <div>
                 <FormHelperText error className="bottom-0 left-0">
                   {errors.image.message}
                 </FormHelperText>
@@ -223,11 +223,12 @@ export default function FormRecipe({
           <FormControl className="flex flex-col gap-1 w-full">
             <label htmlFor="title" className="font-semibold uppercase tracking-widest">Your name</label>
             <TextField 
+              error={!!errors.createdByName}
               id="createdByName" 
               type="text" 
               variant="outlined" 
               placeholder="Your name" 
-              className={`input ${errors.createdByName ? 'input--error' : ''}`}
+              className={`input`}
               fullWidth
               {...register("createdByName", { required: true })}
 
@@ -238,11 +239,12 @@ export default function FormRecipe({
           <FormControl className="flex flex-col gap-1 w-full">
             <label htmlFor="title" className="font-semibold uppercase tracking-widest">Email address</label>
             <TextField 
+              error={!!errors.createdByEmail}
               id="createdByEmail" 
               type="email" 
               variant="outlined" 
               placeholder="Your email address" 
-              className="input"
+              className={`input`}
               fullWidth
               {...register("createdByEmail", { required: true })}
             />
@@ -252,12 +254,13 @@ export default function FormRecipe({
           <FormControl className="flex flex-col gap-1 w-full">
             <label htmlFor="title" className="font-semibold uppercase tracking-widest">Title</label>
             <TextField 
+              error={!!errors.title}
               id="title" 
               type="text" 
               aria-describedby="" 
               variant="outlined" 
               placeholder="Recipe title" 
-              className="input"
+              className={`input`}
               fullWidth
               {...register("title", { required: true })}
             />
@@ -267,12 +270,13 @@ export default function FormRecipe({
           <FormControl className="flex flex-col gap-1 w-full">
             <label htmlFor="title" className="font-semibold uppercase tracking-widest">Description</label>
             <TextField 
+              error={!!errors.description}
               id="description"
               type="text" 
               aria-describedby="" 
               variant="outlined" 
               placeholder="Recipe title" 
-              className="input"
+              className={`input`}
               multiline
               rows={2}
               fullWidth
@@ -284,12 +288,13 @@ export default function FormRecipe({
           <FormControl className="flex flex-col gap-1 w-full">
             <label htmlFor="title" className="font-semibold uppercase tracking-widest">Ingredients</label>
             <TextField 
+              error={!!errors.ingredients}
               id="ingredients"
               type="text" 
               aria-describedby="" 
               variant="outlined" 
               placeholder="Ingredients" 
-              className="input"
+              className={`input`}
               multiline
               rows={4}
               fullWidth
@@ -301,12 +306,13 @@ export default function FormRecipe({
           <FormControl className="flex flex-col gap-1 w-full">
             <label htmlFor="title" className="font-semibold uppercase tracking-widest">Instructions</label>
             <TextField 
+              error={!!errors.instructions}
               id="instruction"
               type="text" 
               aria-describedby="" 
               variant="outlined" 
               placeholder="Instructions" 
-              className="input"
+              className={`input`}
               multiline
               rows={4}
               fullWidth
